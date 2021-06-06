@@ -6,7 +6,7 @@ Created on Tue Jun  1 10:23:24 2021
 """
 from flask import Flask, render_template, request , jsonify
 import requests
-import pickle
+import joblib
 import numpy as np
 import sklearn
 from sklearn.preprocessing import StandardScaler
@@ -16,7 +16,7 @@ from sklearn.linear_model import LinearRegression
 app = Flask(__name__)
 app.config['SECRET_KEY']='mukul'
 path ='Model_1.sav'
-model = pickle.load(open(path, 'rb'))
+model = joblib.load(open(path, 'rb'))
 @app.route('/',methods=['GET'])
 def Home():
     return render_template('mainpafe.html')
